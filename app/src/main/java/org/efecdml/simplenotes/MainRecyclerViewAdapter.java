@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,16 +15,19 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerViewAdapter.MainViewHolder> {
+public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerViewAdapter.MainViewHolder> implements Filterable {
 
     private List<NotesModel> notesModelList;
+    private List<NotesModel> notesModelListFull;
     private Context context;
     private Activity activity;
 
     public MainRecyclerViewAdapter(List<NotesModel> notesModelList, Context context, Activity activity) {
         this.notesModelList = notesModelList;
+        notesModelListFull = new ArrayList<>(notesModelList);
         this.context = context;
         this.activity = activity;
     }
@@ -45,7 +50,6 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
             public void onClick(View view) {
                 Intent intent = new Intent(context, UpdateDeleteNoteActivity.class);
                 intent.putExtra("id", Integer.valueOf(notesModelList.get(position).getId()));
-                Toast.makeText(context, Integer.toString(notesModelList.get(position).getId()), Toast.LENGTH_SHORT).show();
                 intent.putExtra("title", notesModelList.get(position).getTitle());
                 intent.putExtra("content", notesModelList.get(position).getContent());
                 intent.putExtra("date", notesModelList.get(position).getCreatedOrModifiedDate());
@@ -59,6 +63,41 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
         return notesModelList.size();
     }
 
+    @Override
+    public Filter getFilter() {
+        return notesModelFilter;
+    }
+
+    private Filter notesModelFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            List<NotesModel> filteredList = new ArrayList<>();
+
+            if(charSequence == null || charSequence.length() == 0){
+                filteredList.addAll(notesModelListFull);
+            }else{
+                String filterPattern = charSequence.toString().toLowerCase().trim();
+
+                for(NotesModel nm : notesModelListFull){
+                    if(nm.getTitle().toLowerCase().contains(filterPattern)){
+                        filteredList.add(nm);
+                    }
+                }
+            }
+
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = filteredList;
+
+            return filterResults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            notesModelList.clear();
+            notesModelList.addAll((List) filterResults.values);
+            notifyDataSetChanged();
+        }
+    };
 
     public class MainViewHolder extends RecyclerView.ViewHolder {
         TextView tv_title;
