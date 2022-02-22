@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="15dp"
         android:hint="Title"
+        android:inputType="text"
         android:maxLines="1"
         app:layout_constraintBottom_toTopOf="@+id/et_content"
         app:layout_constraintEnd_toEndOf="parent"

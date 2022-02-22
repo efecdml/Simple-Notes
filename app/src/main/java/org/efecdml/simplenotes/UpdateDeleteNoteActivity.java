@@ -3,6 +3,8 @@ package org.efecdml.simplenotes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -80,5 +82,10 @@ public class UpdateDeleteNoteActivity extends AppCompatActivity {
         et_content.setText(notesModel.getContent());
     }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.toolbar_update_delete_note, menu);
+        return true;
+    }
 }

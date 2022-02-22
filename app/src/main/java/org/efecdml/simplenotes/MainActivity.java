@@ -81,10 +81,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.toolbar_menu, menu);
+        menuInflater.inflate(R.menu.toolbar_main, menu);
 
         MenuItem searchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
+
+        MenuItem sortItem = menu.findItem(R.id.action_sort);
 
         searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
@@ -96,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                //TODO mAdapter.getFilter().filter(newText);
                 mAdapter.getFilter().filter(newText);
                 return false;
             }
@@ -115,6 +116,12 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.itm_importNotes:
                 Toast.makeText(this, "itm_importNotes selected", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.subaction_alphabetical:
+                Toast.makeText(this, "subaction_alphabetical selected", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.subaction_date:
+                Toast.makeText(this, "subaction_date selected", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
