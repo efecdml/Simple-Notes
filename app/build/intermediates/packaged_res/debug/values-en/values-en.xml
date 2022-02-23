@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="addNoteActivity_title">Add</string>
+    <string name="app_name">Simple Notes</string>
+    <string name="error_adding_note">Error adding note</string>
+    <string name="error_deleting_note">Error deleting note</string>
+    <string name="error_fetching_note">Error fetching note</string>
+    <string name="error_updating_note">Error updating note</string>
+    <string name="mainActivity_title">Notes</string>
+    <string name="note_deleted">Note deleted</string>
+    <string name="updateDeleteNoteActivity_title">Edit</string>
+</resources>

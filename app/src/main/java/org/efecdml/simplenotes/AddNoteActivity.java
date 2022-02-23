@@ -1,10 +1,14 @@
 package org.efecdml.simplenotes;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +24,7 @@ public class AddNoteActivity extends AppCompatActivity {
 
     private EditText et_title;
     private EditText et_content;
-    private FloatingActionButton fltBtn_save;
+    private NotesModel notesModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +38,19 @@ public class AddNoteActivity extends AppCompatActivity {
 
         et_title = findViewById(R.id.et_title);
         et_content = findViewById(R.id.et_content);
-        fltBtn_save = findViewById(R.id.fltBtn_save);
+    }
 
-        fltBtn_save.setOnClickListener(new View.OnClickListener() {
-            NotesModel notesModel;
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.toolbar_add_note, menu);
+        return true;
+    }
 
-            @Override
-            public void onClick(View view) {
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_save:
                 Date date = new Date();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy '-' HH:mm");
                 String currentDateTime = simpleDateFormat.format(date);
@@ -54,7 +64,15 @@ public class AddNoteActivity extends AppCompatActivity {
                 DatabaseHelper databaseHelper = new DatabaseHelper(AddNoteActivity.this);
                 databaseHelper.addNote(notesModel);
                 finish();
-            }
-        });
+                Toast.makeText(this, "action_save clicked.", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_clear:
+                et_title.setText("");
+                et_content.setText("");
+                Toast.makeText(this, "action_clear clicked.", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

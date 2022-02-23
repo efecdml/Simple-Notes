@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en/values-en.xml",
+            "map": [
+                {
+                    "source": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/src/main/res/values-en/locale_en.xml",
+                    "from": {
+                        "startLines": "3,10,6,7,5,9,2,8,4",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "108,548,294,358,226,480,55,426,162",
+                        "endColumns": "53,49,63,67,67,67,52,53,63",
+                        "endOffsets": "157,593,353,421,289,543,103,475,221"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,109,159,223,291,359,427,480,534",
+                        "endColumns": "53,49,63,67,67,67,52,53,63",
+                        "endOffsets": "104,154,218,286,354,422,475,529,593"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -6,6 +6,8 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -108,20 +110,33 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.itm_deleteAll:
-                Toast.makeText(this, "itm_deleteAll selected", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.itm_exportNotes:
-                Toast.makeText(this, "itm_exportNotes selected", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.itm_importNotes:
-                Toast.makeText(this, "itm_importNotes selected", Toast.LENGTH_SHORT).show();
-                return true;
             case R.id.subaction_alphabetical:
                 Toast.makeText(this, "subaction_alphabetical selected", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.subaction_date:
                 Toast.makeText(this, "subaction_date selected", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_deleteAll:
+                Toast.makeText(this, "action_delete_all selected", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Delete all?");
+                builder.setMessage("Are you sure you want to delete all the notes?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
+
+                        databaseHelper.deleteAllTheNotes();
+                        recreate();
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                builder.create().show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

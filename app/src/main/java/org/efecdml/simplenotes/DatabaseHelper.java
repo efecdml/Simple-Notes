@@ -90,10 +90,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         Cursor cursor = sqLiteDatabase.rawQuery(queryString, null);
         if (cursor.moveToFirst()) {
-            Toast.makeText(context, "Note deleted", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Note deleted", Toast.LENGTH_SHORT).show();
             return true;
         } else {
-            Toast.makeText(context, "Error deleting note", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Error deleting note", Toast.LENGTH_SHORT).show();
             return false;
         }
     }

@@ -1,10 +1,12 @@
 package org.efecdml.simplenotes;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,8 +21,6 @@ public class UpdateDeleteNoteActivity extends AppCompatActivity {
 
     private EditText et_title;
     private EditText et_content;
-    private FloatingActionButton fltBtn_update;
-    private FloatingActionButton fltBtn_delete;
     private DatabaseHelper databaseHelper = new DatabaseHelper(UpdateDeleteNoteActivity.this);
     private NotesModel notesModel;
 
@@ -36,12 +36,11 @@ public class UpdateDeleteNoteActivity extends AppCompatActivity {
 
         et_title = findViewById(R.id.et_title);
         et_content = findViewById(R.id.et_content);
-        fltBtn_update = findViewById(R.id.fltBtn_update);
-        fltBtn_delete = findViewById(R.id.fltBtn_delete);
 
         getIntentData();
         fillWidgets();
 
+        /*
         fltBtn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,6 +55,8 @@ public class UpdateDeleteNoteActivity extends AppCompatActivity {
             }
         });
 
+
+
         fltBtn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,6 +64,10 @@ public class UpdateDeleteNoteActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+         */
+
+
     }
 
     private void getIntentData() {
@@ -82,10 +87,44 @@ public class UpdateDeleteNoteActivity extends AppCompatActivity {
         et_content.setText(notesModel.getContent());
     }
 
+    /*
+    private void delete(){
+        databaseHelper.deleteNote(notesModel);
+        finish();
+    }
+
+     */
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.toolbar_update_delete_note, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_save:
+                Date date = new Date();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy '-' HH:mm");
+                String currentDateTime = simpleDateFormat.format(date);
+                notesModel.setCreatedOrModifiedDate(currentDateTime);
+                notesModel.setTitle(et_title.getText().toString());
+                notesModel.setContent(et_content.getText().toString());
+                databaseHelper.updateNote(notesModel);
+                finish();
+                Toast.makeText(this, "action_save clicked.", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_delete:
+                //delete();
+                databaseHelper.deleteNote(notesModel);
+                finish();
+                System.out.println(notesModel);
+                Toast.makeText(this, "action_delete clicked.", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
