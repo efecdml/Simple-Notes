@@ -98,7 +98,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void deleteAllTheNotes() {
+    public void deleteEveryNote() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         sqLiteDatabase.execSQL("DELETE FROM " + NOTES_TABLE);
     }

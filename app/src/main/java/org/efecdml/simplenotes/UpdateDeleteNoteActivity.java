@@ -7,12 +7,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,35 +37,6 @@ public class UpdateDeleteNoteActivity extends AppCompatActivity {
 
         getIntentData();
         fillWidgets();
-
-        /*
-        fltBtn_update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Date date = new Date();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy '-' HH:mm");
-                String currentDateTime = simpleDateFormat.format(date);
-                notesModel.setCreatedOrModifiedDate(currentDateTime);
-                notesModel.setTitle(et_title.getText().toString());
-                notesModel.setContent(et_content.getText().toString());
-                databaseHelper.updateNote(notesModel);
-                finish();
-            }
-        });
-
-
-
-        fltBtn_delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                databaseHelper.deleteNote(notesModel);
-                finish();
-            }
-        });
-
-         */
-
-
     }
 
     private void getIntentData() {
@@ -82,18 +51,10 @@ public class UpdateDeleteNoteActivity extends AppCompatActivity {
         }
     }
 
-    private void fillWidgets(){
+    private void fillWidgets() {
         et_title.setText(notesModel.getTitle());
         et_content.setText(notesModel.getContent());
     }
-
-    /*
-    private void delete(){
-        databaseHelper.deleteNote(notesModel);
-        finish();
-    }
-
-     */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -104,7 +65,7 @@ public class UpdateDeleteNoteActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.action_save:
                 Date date = new Date();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy '-' HH:mm");
@@ -114,14 +75,11 @@ public class UpdateDeleteNoteActivity extends AppCompatActivity {
                 notesModel.setContent(et_content.getText().toString());
                 databaseHelper.updateNote(notesModel);
                 finish();
-                Toast.makeText(this, "action_save clicked.", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.action_delete:
-                //delete();
                 databaseHelper.deleteNote(notesModel);
                 finish();
                 System.out.println(notesModel);
-                Toast.makeText(this, "action_delete clicked.", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

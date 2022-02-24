@@ -111,10 +111,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.subaction_alphabetical:
-                Toast.makeText(this, "subaction_alphabetical selected", Toast.LENGTH_SHORT).show();
+                //TODO Sort Recyclerview by alphabetical
                 return true;
             case R.id.subaction_date:
-                Toast.makeText(this, "subaction_date selected", Toast.LENGTH_SHORT).show();
+                //TODO Sort Recyclerview by date created or last time modified
                 return true;
             case R.id.action_deleteAll:
                 Toast.makeText(this, "action_delete_all selected", Toast.LENGTH_SHORT).show();
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
 
-                        databaseHelper.deleteAllTheNotes();
+                        databaseHelper.deleteEveryNote();
                         recreate();
                     }
                 });
