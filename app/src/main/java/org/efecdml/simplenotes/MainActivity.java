@@ -16,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -117,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
                 //TODO Sort Recyclerview by date created or last time modified
                 return true;
             case R.id.action_deleteAll:
-                Toast.makeText(this, "action_delete_all selected", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Delete all?");
                 builder.setMessage("Are you sure you want to delete all the notes?");
