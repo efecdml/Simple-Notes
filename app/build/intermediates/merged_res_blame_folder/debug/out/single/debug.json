@@ -8,12 +8,12 @@
         "source": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/build/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp"
-    },
-    {
         "merged": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/build/intermediates/merged_res/debug/drawable_ic_baseline_clear_24.xml.flat",
         "source": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/src/main/res/drawable/ic_baseline_clear_24.xml"
+    },
+    {
+        "merged": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/build/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
         "merged": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/build/intermediates/merged_res/debug/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
@@ -32,12 +32,12 @@
         "source": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/src/main/res/layout/activity_update_delete_note.xml"
     },
     {
-        "merged": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/build/intermediates/merged_res/debug/drawable_ic_baseline_add_24.xml.flat",
-        "source": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/src/main/res/drawable/ic_baseline_add_24.xml"
-    },
-    {
         "merged": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/build/intermediates/merged_res/debug/menu_toolbar_add_note.xml.flat",
         "source": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/src/main/res/menu/toolbar_add_note.xml"
+    },
+    {
+        "merged": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/build/intermediates/merged_res/debug/drawable_ic_baseline_add_24.xml.flat",
+        "source": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/src/main/res/drawable/ic_baseline_add_24.xml"
     },
     {
         "merged": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/build/intermediates/merged_res/debug/layout_activity_add_note.xml.flat",
@@ -106,6 +106,10 @@
     {
         "merged": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/build/intermediates/merged_res/debug/mipmap-xhdpi_ic_launcher_round.webp.flat",
         "source": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/build/intermediates/merged_res/debug/drawable_rv_row_border.xml.flat",
+        "source": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/src/main/res/drawable/rv_row_border.xml"
     },
     {
         "merged": "/home/oskar/AndroidStudioProjects/SimpleNotes/app/build/intermediates/merged_res/debug/drawable_ic_launcher_background.xml.flat",

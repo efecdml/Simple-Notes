@@ -27,7 +27,7 @@
         android:id="@+id/rv_mainActivity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="5dp"
+        android:layout_marginHorizontal="0dp"
         android:layout_marginTop="61dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

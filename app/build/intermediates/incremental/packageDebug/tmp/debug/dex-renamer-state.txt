@@ -1,4 +1,4 @@
-#Wed Feb 23 18:26:52 TRT 2022
+#Thu Feb 24 18:09:52 TRT 2022
 base.2=/home/oskar/AndroidStudioProjects/SimpleNotes/app/build/intermediates/dex/debug/mergeProjectDexDebug/13/classes.dex
 path.2=13/classes.dex
 base.1=/home/oskar/AndroidStudioProjects/SimpleNotes/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex

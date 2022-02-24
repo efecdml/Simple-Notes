@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="http://schemas.android.com/tools">
-    <color name="black">#FF000000</color>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="primaryColor">#145da0</color>
+    <color name="primaryDarkColor">#145da0</color>
+    <color name="primaryLightColor">#568ad2</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryColor">#145da0</color>
+    <color name="secondaryDarkColor">#003471</color>
+    <color name="secondaryLightColor">#568ad2</color>
+    <color name="secondaryTextColor">#ffffff</color>
     <string name="addNoteActivity_title">Add</string>
     <string name="app_name">Simple Notes</string>
     <string name="error_adding_note">Error adding note</string>
@@ -17,16 +19,16 @@
     <string name="note_deleted">Note deleted</string>
     <string name="updateDeleteNoteActivity_title">Edit</string>
     <style name="Theme.SimpleNotes" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
-        
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryColor</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/primaryDarkColor</item>
+        <item name="colorSecondaryVariant">@color/primaryDarkColor</item>
+        <item name="colorOnSecondary">@color/secondaryTextColor</item>
+        <!-- Status bar color. -->
         <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
-        
+        <!-- Customize your theme here. -->
     </style>
 </resources>
