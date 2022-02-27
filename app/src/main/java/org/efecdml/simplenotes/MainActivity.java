@@ -36,22 +36,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MaterialToolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Notes");
-
         fltBtn_add = findViewById(R.id.fltBtn_add);
         rv_mainActivity = findViewById(R.id.rv_mainActivity);
         tv_emptyMessage = findViewById(R.id.tv_emptyMessage);
 
-        rv_mainActivity.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-
+        defineToolbar();
         fillNotesModelList();
-
-        mAdapter = new MainRecyclerViewAdapter(notesModelList, this, MainActivity.this);
-        rv_mainActivity.setAdapter(mAdapter);
-        rv_mainActivity.setLayoutManager(layoutManager);
+        rv_mainActivitySetUp();
 
         fltBtn_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +51,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void defineToolbar() {
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Notes");
+    }
+
+    private void rv_mainActivitySetUp() {
+        rv_mainActivity.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+
+        mAdapter = new MainRecyclerViewAdapter(notesModelList, this, MainActivity.this);
+
+        rv_mainActivity.setAdapter(mAdapter);
+        rv_mainActivity.setLayoutManager(layoutManager);
     }
 
     private void fillNotesModelList() {
